@@ -50,32 +50,45 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-  <?php 
-    foreach($hotels as $hotel) {
-      ?>
-      <ul>
-      <?php
-      foreach($hotel as $key => $data) {
-        if($key === 'parking') {
-          if($data === false) {
-            ?>
-            <li>No <?php echo $key ?> lots</li>
-            <?php
-          } else {
-            ?>
-            <li>It has <?php echo $key ?> lots</li>
-            <?php
-          }
-        } else {
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Parking</th>
+        <th scope="col">Vote</th>
+        <th scope="col">Distance to center</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+        foreach($hotels as $hotel) {
           ?>
-            <li><?php echo $data ?></li>
+          <tr>
+          <?php
+          foreach($hotel as $key => $data) {
+            if($key === 'parking') {
+              if($data === false) {
+                ?>
+                <td>No <?php echo $key ?> lots</td>
+                <?php
+              } else {
+                ?>
+                <td>It has <?php echo $key ?> lots</td>
+                <?php
+              }
+            } else {
+              ?>
+                <td><?php echo $data ?></td>
+              <?php
+            }
+          }
+          ?>
+          </tr>
           <?php
         }
-      }
       ?>
-      </ul>
-      <?php
-    }
-    ?>
+    </tbody>
+  </table>
 </body>
 </html>
