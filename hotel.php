@@ -38,7 +38,6 @@
     ],
 
   ];
-  # var_dump(array_keys($hotels[0]))
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +62,7 @@
           <tr>
             <td><?php echo $hotel['name'] ?></td>
             <td><?php echo $hotel['description'] ?></td>
-            <td><?php echo $hotel['parking'] ? 'Yes' : 'No' ?>
-            </td>
+            <td><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></td>
             <td><?php echo $hotel['vote'] ?></td>
             <td><?php echo $hotel['distance_to_center'] ?></td>
           </tr>
