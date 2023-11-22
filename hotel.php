@@ -61,33 +61,21 @@
       </tr>
     </thead>
     <tbody>
-      <?php 
-        foreach($hotels as $hotel) {
-          ?>
+      <?php foreach($hotels as $hotel) { ?>
           <tr>
-          <?php
-          foreach($hotel as $key => $data) {
-            if($key === 'parking') {
-              if($data === false) {
-                ?>
-                <td>No <?php echo $key ?> lots</td>
-                <?php
-              } else {
-                ?>
-                <td>It has <?php echo $key ?> lots</td>
-                <?php
-              }
-            } else {
-              ?>
-                <td><?php echo $data ?></td>
-              <?php
-            }
-          }
-          ?>
+            <td><?php echo $hotel['name'] ?></td>
+            <td><?php echo $hotel['description'] ?></td>
+            <td>
+              <?php if($hotel['parking']) { ?>
+                It has parking lots
+              <?php } else { ?>
+                No parking lots
+              <?php } ?>
+            </td>
+            <td><?php echo $hotel['vote'] ?></td>
+            <td><?php echo $hotel['distance_to_center'] ?></td>
           </tr>
-          <?php
-        }
-      ?>
+        <?php } ?>
     </tbody>
   </table>
 </body>
