@@ -38,7 +38,7 @@
     ],
 
   ];
-
+  # var_dump(array_keys($hotels[0]))
 ?>
 
 <!DOCTYPE html>
@@ -53,11 +53,9 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Parking</th>
-        <th scope="col">Vote</th>
-        <th scope="col">Distance to center</th>
+        <?php foreach(array_keys($hotels[0]) as $key) { ?>
+          <th><?php echo $key ?></th>
+        <?php } ?>
       </tr>
     </thead>
     <tbody>
@@ -67,9 +65,9 @@
             <td><?php echo $hotel['description'] ?></td>
             <td>
               <?php if($hotel['parking']) { ?>
-                It has parking lots
+                Yes
               <?php } else { ?>
-                No parking lots
+                No
               <?php } ?>
             </td>
             <td><?php echo $hotel['vote'] ?></td>
